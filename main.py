@@ -54,7 +54,8 @@ while running:
             resize = True
         if event.type == pygame.KEYUP and event.key == pygame.K_LSHIFT:
             resize = False
-        if (event.type == pygame.MOUSEMOTION and resize) or (event.type == pygame.MOUSEMOTION and click):
+        #if (event.type == pygame.MOUSEMOTION and resize) or (event.type == pygame.MOUSEMOTION and click):
+        if (event.type == pygame.MOUSEWHEEL and resize) or (event.type == pygame.MOUSEWHEEL and click):
             x_pos, y_pos = event.pos  # Получаем текущие координаты курсора
             print(x_pos, y_pos)
             x_old = x_pos
