@@ -4,7 +4,10 @@ from pygame.locals import *
 
 # pygame setup
 pygame.init()
-screen = pygame.display.set_mode((1280, 720))
+info = pygame.display.Info()
+SCREEN_WIDTH = info.current_w
+SCREEN_HEIGHT = info.current_h
+screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT), vsync=1)
 clock = pygame.time.Clock()
 running = True
 
@@ -31,9 +34,10 @@ while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
+        if event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE:
+            running = False
         if event.type == pygame.KEYDOWN and event.key == pygame.K_LCTRL:
             click = True
-
         if event.type == pygame.KEYDOWN and event.key == pygame.K_LEFT:
             press_left = True
         if event.type == pygame.KEYDOWN and event.key == pygame.K_RIGHT:
